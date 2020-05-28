@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script>
+        //读取cookie信息
+        function getCookie(name) {
+            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+            if(arr=document.cookie.match(reg))
+                return unescape(arr[2]);
+            else
+                return null;
+        }
+        window.onload = function(){
+            //csrf字段值设置为cookie中保存的token值
+            document.querySelector("#csrf").value = getCookie("XSRF-TOKEN")
+        }
+    </script>
+</head>
+<body>
+<form action="/loginUrl" method="post">
+    <input type="hidden" name="_csrf" id = "csrf"/><br/>
+    <!--<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>-->
+    <input type="text" name="name" placeholder="Username"/><br/>
+    <input type="password" name="pwd" placeholder="Password"/><br/>
+    <input type="submit" value="登录" />
+</form>
+</body>
+</html>

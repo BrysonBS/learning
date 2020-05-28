@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>refundApply</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var ds;
+            $("#form_submit").on("click",function(){
+                var refund = {};
+                refund.company = $("#company").val();
+                refund.applyDate = $("#applyDate").val();
+                refund.applyName = $("#applyName").val();
+                refund.refundNo = $("#refundNo").val();
+                refund.refundUnit = $("#refundUnit").val();
+                var arr = [];
+                $("table tr").each(function(i,e){
+                    if(i == 0) return true;
+                    var detail = {}
+                    var $inputs = $(e).find("td input");
+                    detail.goodsCode = $inputs[0].value;
+                    detail.batchNumber = $inputs[1].value;
+                    detail.totalAmount = $inputs[2].value;
+                    arr[i-1] = detail;
+                });
+                ds = {"refund": refund,"details":arr};
+                console.log(refund);
+                $.ajax({
+                    type: "POST",
+                    url: "/refundApply",
+                    dataType: "json",
+                    traditional : true,
+                    contentType : "application/json;charset=utf-8",
+                    async: false,
+                    data: JSON.stringify(ds),
+                    success: function(data){
+                        console.log(data);
+                    },
+                    error: function(msg){
+                        alert("失败: " + msg);
+                    }
+                })
+            })
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <span>company #: </span><input type="text" name="company" id="company" /><br/>
+        <span>applyDate #: </span><input type="text" name="applyDate" id="applyDate" /><br/>
+        <span>applyName #: </span><input type="text" name="applyName" id="applyName"  /><br/>
+        <br/>
+        <span>refundNo #: </span><input type="text" name="refundNo" id="refundNo" />
+        <br/>
+        <span>refundUnit #: </span><input type="text" name="refundUnit" id="refundUnit" /><br/>
+        <table>
+            <tr>
+                <td>品名</td>
+                <td>批号</td>
+                <td>数量</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="goodsCode" /></td>
+                <td><input type="text" name="batchNumber" /></td>
+                <td><input type="text" name="totalAmount" /></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="goodsCode" /></td>
+                <td><input type="text" name="batchNumber" /></td>
+                <td><input type="text" name="totalAmount" /></td>
+            </tr>
+        </table>
+        <span id="form_submit">提交</span>
+    </form>
+</body>
+</html>

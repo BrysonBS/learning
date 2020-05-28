@@ -1,0 +1,47 @@
+# spring:
+#   datasource:
+#     url: jdbc:sqlserver://10.0.0.25;DatabaseName=BPMDB
+#     username: jtbys
+#     password: nabel..bys
+
+spring:
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:test;DB_CLOSE_ON_EXIT=FALSE
+    schema:
+      - classpath:data/schema.sql
+    data:
+      - classpath:data/data.sql
+    # initialization-mode: always
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  profiles:
+    active:
+      - prod
+
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:mykeys.jks
+    key-store-password: letmein
+    key-password: letmein
+logging:
+  level:
+    root: WARN
+    org.springframework.security: DEBUG
+  file:
+    path: logs
+stock:
+  page-size: 15
+
+---
+spring:
+  profiles: prod
+
+logging:
+  level:
+    root: WARN
+    org.springframework.security: WARN

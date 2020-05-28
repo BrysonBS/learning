@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/refund" method="post" th:object="${refund}">
+        <span>taskId #: </span><input type="text" name="taskId" id="taskId"/>
+        <span>company #: </span><input type="text" name="company" id="company" /><br/>
+        <span>applyDate #: </span><input type="text" name="applyDate" id="applyDate" /><br/>
+        <span>applyName #: </span><input type="text" name="applyName" id="applyName"  /><br/>
+        <span>refundNo #: </span><input type="text" name="refundNo" id="refundNo" />
+        <span th:if="${#fields.hasErrors('refundNo')}" th:errors="*{refundNo}">taskId errors</span>
+        <br/>
+        <span>refundUnit #: </span><input type="text" name="refundUnit" id="refundUnit" /><br/>
+        <input type="submit" value="提交" />
+    </form>
+    <div>
+        <table>
+            <tr>
+                <td>taskId</td>
+                <td>company</td>
+                <td>applyDate</td>
+                <td>applyName</td>
+                <td>refundNo</td>
+                <td>refundUnit</td>
+            </tr>
+            <tr th:each="item : ${list}">
+                <td th:text="*{item.taskId}">taskId</td>
+                <td th:text="*{item.getCompany()}">company</td>
+                <td th:text="*{item.getApplyDate()}">applyDate</td>
+                <td th:text="*{item.getApplyName()}">applyName</td>
+                <td th:text="*{item.getRefundNo()}">refundNo</td>
+                <td th:text="*{item.getRefundUnit()}">refundUnit</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

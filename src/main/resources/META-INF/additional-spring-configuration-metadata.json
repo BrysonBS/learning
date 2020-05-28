@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "stock.page-size",
+      "type": "java.lang.String",
+      "description": "每页记录数."
+  }
+] }
