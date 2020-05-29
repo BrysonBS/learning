@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESTful</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="rest">
+        <h2>查询</h2>
+        <div>
+            <button v-on:click="retrieve">查询</button>
+            <input v-model="popId" type="text" name="id" />
+        </div>
+        <table>
+            <tr>
+                <td>TASKID</td>
+                <td>CODE</td>
+                <td>NAME</td>
+                <td>BRAND</td>
+                <td>COUNT</td>
+            </tr>
+            <tr v-for="item in items">
+                <td>{{ item.task }}</td>
+                <td>{{ item.code }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.brand }}</td>
+                <td>{{ item.count }}</td>
+            </tr>
+        </table>
+        <hr/>
+        <h2>新增</h2>
+        <h2>全部更新</h2>
+        <h2>部分更新</h2>
+        <h2>删除</h2>
+    </div>
+    <script>
+        new Vue({
+            el: '#rest',
+            data: {
+                items: null,
+                popId: ""
+            },
+            methods: {
+                retrieve: function(){
+                    axios
+                        .get("/pop/"+this.popId).then(response => (this.items = response.data))
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
+        })
+    </script>
+</body>
+</html>

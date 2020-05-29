@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface JpaPopInStockRepository extends CrudRepository<PopInStock,Integer> {
     List<PopInStock> findPopInStocksByOrderByTaskDesc(Pageable pageable);
+    PopInStock findById(int id);
 }

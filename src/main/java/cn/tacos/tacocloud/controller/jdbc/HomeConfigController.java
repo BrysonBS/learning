@@ -15,5 +15,6 @@ public class HomeConfigController implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         //注册Controller求路径和对应页面
         registry.addViewController("/home").setViewName("jdbc/home");
+        registry.addViewController("/rest").setViewName("rest/rest");
     }
 }
