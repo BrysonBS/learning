@@ -11,7 +11,7 @@
         <h2>查询</h2>
         <div>
             <button v-on:click="retrieve">查询</button>
-            <input v-model="popId" type="text" name="id" />
+            <input v-model="popId" type="text" />
         </div>
         <table>
             <tr>
@@ -31,21 +31,95 @@
         </table>
         <hr/>
         <h2>新增</h2>
-        <h2>全部更新</h2>
-        <h2>部分更新</h2>
+        <div>
+            <input v-model="createForm.task" type="text" /><br/>
+            <input v-model="createForm.code" type="text" /><br/>
+            <input v-model="createForm.name" type="text"/><br/>
+            <input v-model="createForm.version" type="text"/><br/>
+            <input v-model="createForm.brand" type="text"/><br/>
+            <input v-model="createForm.count" type="text"/><br/>
+            <input v-model="createForm.comment" type="text"/><br/>
+            <button v-on:click="create">新增</button>
+        </div>
+        <h2>全部更新/部分更新</h2>
+        <div>
+            <input v-model="updateForm.id" type="text" /><br/>
+            <input v-model="updateForm.task" type="text" /><br/>
+            <input v-model="updateForm.code" type="text" /><br/>
+            <input v-model="updateForm.name" type="text"/><br/>
+            <input v-model="updateForm.version" type="text"/><br/>
+            <input v-model="updateForm.brand" type="text"/><br/>
+            <input v-model="updateForm.count" type="text"/><br/>
+            <input v-model="updateForm.comment" type="text"/><br/>
+
+            <button v-on:click="updateAll">全部更新</button>
+            <button v-on:click="updatePart">部分更新</button>
+        </div>
         <h2>删除</h2>
+        <div>
+            <input v-model="deleteId" type="text" />
+            <button v-on:click="deleteById">删除</button>
+        </div>
     </div>
     <script>
         new Vue({
             el: '#rest',
             data: {
                 items: null,
-                popId: ""
+                popId: "",
+                createForm: {
+                    task: "",
+                    code: "",
+                    name: "",
+                    version: "",
+                    brand: "",
+                    count: "",
+                    comment: ""
+                },
+                updateForm: {
+                    id: "",
+                    task: "",
+                    code: "",
+                    name: "",
+                    version: "",
+                    brand: "",
+                    count: "",
+                    comment: ""
+                },
+                deleteId: ""
             },
             methods: {
                 retrieve: function(){
                     axios
                         .get("/pop/"+this.popId).then(response => (this.items = response.data))
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                },
+                create: function(){
+                    axios.post("/pop",this.createForm).then(response => console.log(response.status))
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                },
+                updateAll: function(){
+                    axios.put("/pop",this.updateForm).then(response => console.log(response.status))
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                },
+                updatePart: function(){
+                    axios({
+                        method:'patch',
+                        url: "/pop/"+this.updateForm.id,
+                        data:this.updateForm
+                        }).then(response => console.log(response.status))
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                },
+                deleteById: function(){
+                    axios.delete("/pop/"+this.deleteId).then(response => console.log(response.status))
                         .catch(function (error) {
                             console.log(error);
                         });
