@@ -3,13 +3,16 @@ package cn.tacos.tacocloud.domain.jpa;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "POP_IN_STOCK")
+@RestResource(rel = "pops",path = "popInStocks") //配置名称和路径
 public class PopInStock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

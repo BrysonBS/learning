@@ -21,6 +21,9 @@ spring:
   profiles:
     active:
       - prod
+  data:
+    rest:
+      base-path: /api
 
 server:
   port: 8443
