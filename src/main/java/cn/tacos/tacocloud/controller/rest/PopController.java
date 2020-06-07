@@ -7,6 +7,7 @@ import cn.tacos.tacocloud.repository.jpa.JpaPopInStockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.hateoas.*;
 import org.springframework.hateoas.server.EntityLinks;
 import org.springframework.hateoas.server.ExposesResourceFor;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.awt.print.Pageable;
 import java.util.List;
 
-@RestController
+@RepositoryRestController
 @ExposesResourceFor(PopInStock.class)  //暴露此类可供其他类使用
 @RequestMapping("/popInStocks")
 public class PopController {
@@ -48,7 +49,7 @@ public class PopController {
                 .withRel("recents"); //设置生成的json字段名
         List<PopInStock> list = popInStockRepository.findAll(page);
         CollectionModel<PopInStockModel> collectionModel =
-                new PopInStockAssembler(this.getClass()).toCollectionModel(list);//集合内部对象创建连接
+                new PopInStockAssembler().toCollectionModel(list);//集合内部对象创建连接
         collectionModel.add(link); //添加链接
         return collectionModel;
     }

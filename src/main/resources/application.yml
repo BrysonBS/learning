@@ -24,7 +24,6 @@ spring:
   data:
     rest:
       base-path: /api
-
 server:
   port: 8443
   ssl:
