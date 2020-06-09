@@ -39,7 +39,7 @@ public class PopController {
     }
 
     @GetMapping("/list")
-    //@ResponseBody
+    @ResponseBody
     public CollectionModel<PopInStockModel> popInStocks(){
         PageRequest page = PageRequest.of(0,2, Sort.by("task"));
 
@@ -55,7 +55,7 @@ public class PopController {
         return collectionModel;
     }
     @GetMapping("/{id}")
-    //@ResponseBody
+    @ResponseBody
     public EntityModel<PopInStock> popInStock(@PathVariable int id){
         Link link = links.linkToItemResource(PopInStock.class,id)
                 .withRel("popInStock"); //给对象创建连接

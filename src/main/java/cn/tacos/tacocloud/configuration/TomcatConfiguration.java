@@ -8,9 +8,9 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
+@Configuration
 public class TomcatConfiguration {
-    //@Bean
+    @Bean
     public Connector connector(){
         Connector connector=new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setScheme("http");
@@ -19,7 +19,7 @@ public class TomcatConfiguration {
         connector.setRedirectPort(8443);
         return connector;
     }
-    //@Bean
+    @Bean
     public TomcatServletWebServerFactory tomcatServletWebServerFactory(Connector connector){
         TomcatServletWebServerFactory tomcat=new TomcatServletWebServerFactory(){
             @Override

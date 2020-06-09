@@ -20,10 +20,14 @@ import java.util.Map;
 public class GettingResource {
     //private RestTemplate restTemplate = new RestTemplate();
 
+    //keytool -export -alias tomcat -keystore mykeys.jks -file server.crt
+    //keytool -import -v -trustcacerts -alias tomcat -file server.crt -storepass changeit -keystore cacerts
+
+    //keytool -delete -alias tomcat -keystore cacerts -storepass changeit
     @Test
     public void test(){
-        //PopInStock pop = getPopInStockById(2);
-        //System.out.println(pop);
+/*        PopInStock pop = getPopInStockById(2);
+        System.out.println(pop);*/
 
 /*        PopInStock popInStock = new PopInStock();
         popInStock.setId(1);
@@ -31,18 +35,18 @@ public class GettingResource {
         popInStock.setName("hello");
         updatePopInStock(popInStock);*/
 
-        PopInStock popInStock = new PopInStock();
+/*        PopInStock popInStock = new PopInStock();
         popInStock.setName("hello");
         popInStock.setTask(123455);
         createPopInStock(popInStock);
         createPopInStockEntity(popInStock);
-        System.out.println(createPopInStockLocation(popInStock).getPath());
+        System.out.println(createPopInStockLocation(popInStock).getPath());*/
 
     }
     public PopInStock getPopInStockById(int id){
         RestTemplate restTemplate = new RestTemplate();
         PopInStock pop = null;
-        String url = "http://localhost:8443/api/popInStocks/{id}";
+        String url = "https://localhost:8443/api/popInStocks/{id}";
         //方式一: 直接传入id
         //pop = restTemplate.getForObject(url, PopInStock.class, id);
 
@@ -65,29 +69,29 @@ public class GettingResource {
     //更新
     public void updatePopInStock(PopInStock popInStock){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8443/api/popInStocks/{id}";
+        String url = "https://localhost:8443/api/popInStocks/{id}";
         restTemplate.put(url,popInStock,popInStock.getId());
     }
     //删除
     public void deletePopInStock(int id){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8443/api/popInStocks/{id}";
+        String url = "https://localhost:8443/api/popInStocks/{id}";
         restTemplate.delete(url,id);
     }
     //新增
     public PopInStock createPopInStock(PopInStock popInStock){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8443/api/popInStocks";
+        String url = "https://localhost:8443/api/popInStocks";
         return restTemplate.postForObject(url,popInStock,PopInStock.class);
     }
     public URI createPopInStockLocation(PopInStock popInStock){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8443/api/popInStocks";
+        String url = "https://localhost:8443/api/popInStocks";
         return restTemplate.postForLocation(url,popInStock);
     }
     public PopInStock createPopInStockEntity(PopInStock popInStock){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8443/api/popInStocks";
+        String url = "https://localhost:8443/api/popInStocks";
         ResponseEntity<PopInStock> responseEntity = restTemplate.postForEntity(url,popInStock,PopInStock.class);
         return responseEntity.getBody();
     }
@@ -95,7 +99,7 @@ public class GettingResource {
     @Test
     public void traverson(){
         //创建Traverson
-        Traverson traverson = new Traverson(URI.create("http://localhost:8443/api"), MediaTypes.HAL_JSON);
+        Traverson traverson = new Traverson(URI.create("https://localhost:8443/api"), MediaTypes.HAL_JSON);
         //获取PopInStocks
         ParameterizedTypeReference<CollectionModel<PopInStock>> popInStocksType = new ParameterizedTypeReference<>(){};
         /** 1 **/
