@@ -26,10 +26,10 @@ spring:
       base-path: /api
 server:
   port: 8443
-  ssl:
-    key-store: classpath:mykeys.jks
-    key-store-password: letmein
-    key-password: letmein
+  #ssl:
+  #  key-store: classpath:mykeys.jks
+  #  key-store-password: letmein
+  #  key-password: letmein
 logging:
   level:
     root: WARN

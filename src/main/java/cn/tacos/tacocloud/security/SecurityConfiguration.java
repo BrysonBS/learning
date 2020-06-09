@@ -50,11 +50,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .csrf()
-                .ignoringAntMatchers("/h2-console/**")
+                .ignoringAntMatchers("/h2-console/**","/api/**")
                 .and()
                 .headers()
                 .frameOptions()
                 .sameOrigin();
+
+        //http.csrf().ignoringAntMatchers("api/**");
     }
 
     private void httpSpEL(HttpSecurity http) throws Exception {

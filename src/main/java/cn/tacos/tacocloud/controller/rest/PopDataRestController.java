@@ -34,6 +34,7 @@ public class PopDataRestController {
         PageRequest pageRequest = PageRequest.of(0,5);
         List<PopInStock> list = popRepository.findPopInStocksByOrderByTaskDesc(pageRequest);
         CollectionModel<PopInStockModel> collections = new PopInStockAssembler().toCollectionModel(list);
+        //CollectionModel<PopInStockModel> collections = new PopInStockAssembler().toCollectionModel(list);
         collections.add(
                 entityLinks.linkFor(PopInStock.class)
                         .slash("/recent")

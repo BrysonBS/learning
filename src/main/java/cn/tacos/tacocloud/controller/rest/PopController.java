@@ -7,25 +7,25 @@ import cn.tacos.tacocloud.repository.jpa.JpaPopInStockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.hateoas.*;
 import org.springframework.hateoas.server.EntityLinks;
 import org.springframework.hateoas.server.ExposesResourceFor;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Pageable;
 import java.util.List;
 
 @RepositoryRestController
 @ExposesResourceFor(PopInStock.class)  //暴露此类可供其他类使用
-@RequestMapping("/popInStocks")
+@RequestMapping("popInStocks")
 public class PopController {
     private JpaPopInStockRepository popInStockRepository;
     private EntityLinks links;
@@ -39,6 +39,7 @@ public class PopController {
     }
 
     @GetMapping("/list")
+    //@ResponseBody
     public CollectionModel<PopInStockModel> popInStocks(){
         PageRequest page = PageRequest.of(0,2, Sort.by("task"));
 
@@ -53,7 +54,8 @@ public class PopController {
         collectionModel.add(link); //添加链接
         return collectionModel;
     }
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
+    //@ResponseBody
     public EntityModel<PopInStock> popInStock(@PathVariable int id){
         Link link = links.linkToItemResource(PopInStock.class,id)
                 .withRel("popInStock"); //给对象创建连接
