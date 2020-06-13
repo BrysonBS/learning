@@ -8,12 +8,13 @@ import lombok.Data;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "POP_IN_STOCK")
 @RestResource(rel = "pops",path = "popInStocks") //配置名称和路径
-public class PopInStock {
+public class PopInStock implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

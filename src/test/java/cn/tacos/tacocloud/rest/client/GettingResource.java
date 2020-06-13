@@ -26,8 +26,8 @@ public class GettingResource {
     //keytool -delete -alias tomcat -keystore cacerts -storepass changeit
     @Test
     public void test(){
-/*        PopInStock pop = getPopInStockById(2);
-        System.out.println(pop);*/
+        PopInStock pop = getPopInStockById(2);
+        System.out.println(pop);
 
 /*        PopInStock popInStock = new PopInStock();
         popInStock.setId(1);
