@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.core.serializer.Serializer;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "POP_IN_STOCK")
 @RestResource(rel = "pops",path = "popInStocks") //配置名称和路径
-public class PopInStock implements Serializable {
+public class PopInStock implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

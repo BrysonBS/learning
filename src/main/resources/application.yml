@@ -33,7 +33,8 @@ spring:
     user: root
     password: root
     mode: embedded #使用内嵌服务器,需要额外引入artemis-jms-server
-
+    embedded:
+      persistent: true
 
 
 server:
