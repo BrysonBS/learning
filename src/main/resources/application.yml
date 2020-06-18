@@ -20,7 +20,8 @@ spring:
 
   profiles:
     active:
-      - prod
+      - rabbitmq
+    #  - prod
   data:
     rest:
       base-path: /api
@@ -55,10 +56,28 @@ stock:
 ---
 spring:
   profiles: prod
-
 logging:
   level:
     root: WARN
     org.springframework.security: WARN
 
+---
+spring:
+  profiles: rabbitmq
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: root
+    template:
+      #exchange: amq.fanout
+      routing-key: popInStock.queue
+    #virtual-host: /
+
+logging:
+  level:
+    root: WARN
+    org.springframework.security: ERROR
+  file:
+    path: logs
 # git@github.com:BrysonBS/learning.git

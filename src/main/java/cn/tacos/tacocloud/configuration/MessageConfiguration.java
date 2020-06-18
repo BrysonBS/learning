@@ -3,6 +3,8 @@ package cn.tacos.tacocloud.configuration;
 import cn.tacos.tacocloud.domain.jpa.PopInStock;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
@@ -14,10 +16,14 @@ import java.util.Map;
 @Configuration
 public class MessageConfiguration {
     @Bean
+    public MessageConverter amqpMessageConverter(){
+        return new Jackson2JsonMessageConverter();
+    }
+    //@Bean
     public Destination destination(){
         return new ActiveMQQueue("popInStockQueue");
     }
-    @Bean
+    //@Bean
     public MappingJackson2MessageConverter messageConverter(){
         MappingJackson2MessageConverter messageConverter = new MappingJackson2MessageConverter();
         //

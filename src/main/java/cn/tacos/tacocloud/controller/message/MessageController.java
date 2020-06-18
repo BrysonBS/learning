@@ -58,7 +58,7 @@ public class MessageController {
         producer.sendPopInStockConvert(popInStock);
     }
 
-    @Autowired
+    //@Autowired
     private MessageConverter messageConverter;
     @Autowired
     private Consumer consumer;

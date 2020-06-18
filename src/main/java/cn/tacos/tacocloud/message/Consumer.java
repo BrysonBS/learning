@@ -19,7 +19,7 @@ public class Consumer {
     public void setJmsTemplate(JmsTemplate jmsTemplate) {
         this.jmsTemplate = jmsTemplate;
     }
-    @Autowired
+    //@Autowired
     private MappingJackson2MessageConverter mappingJackson2MessageConverter;
     public PopInStock receivePopInStockConvert() throws JMSException {
         //return (PopInStock) jmsTemplate.receiveAndConvert("taco.popInStock.queue");

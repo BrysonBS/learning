@@ -30,7 +30,7 @@ public class Producer {
         jmsTemplate.send(session -> session.createObjectMessage(popInStock));
     }
     //使用自定义的destination
-    @Autowired
+    //@Autowired
     private Destination popInStockQueue;
     public void sendPopInStockByDestination(PopInStock popInStock) {
         jmsTemplate.send(popInStockQueue, session -> session.createObjectMessage(popInStock));
