@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class KafkaProducer {
+    //引入kafka依赖之后spring boot中就会自动创建此bean,使用时直接注入即可
     @Autowired
     private KafkaTemplate<String,PopInStock> kafkaTemplate;
     public void send(PopInStock popInStock){

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.io.File;
 import java.lang.reflect.ParameterizedType;
 import java.net.URI;
 import java.util.Collection;
@@ -119,5 +120,4 @@ public class GettingResource {
         popInStock.setName("Traverson");
         new RestTemplate().postForEntity(url,popInStock,PopInStock.class);
     }
-
 }
