@@ -20,22 +20,11 @@ spring:
 
   profiles:
     active:
-      - prod
+      - kafka
+      #- prod
   data:
     rest:
       base-path: /api
-  jms:
-    template:
-      default-destination: cn.com.queue
-  artemis:
-    host: localhost
-    port: 61616
-    user: root
-    password: root
-    mode: embedded #使用内嵌服务器,需要额外引入artemis-jms-server
-    embedded:
-      persistent: true
-
 
 server:
   port: 8443
@@ -61,4 +50,19 @@ logging:
     root: WARN
     org.springframework.security: WARN
 
+---
+spring:
+  profiles: kafka
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+    template:
+      default-topic: popInStock.topic
+    consumer:
+      group-id: test
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 # git@github.com:BrysonBS/learning.git

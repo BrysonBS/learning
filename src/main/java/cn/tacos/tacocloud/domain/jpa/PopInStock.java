@@ -31,4 +31,5 @@ public class PopInStock implements Serializable{
     @JsonProperty(value = "count")
     private Double inStockCount;
     private String comment;
+
 }
