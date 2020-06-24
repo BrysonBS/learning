@@ -1,12 +1,11 @@
 package cn.tacos.tacocloud.controller.message;
 
 import cn.tacos.tacocloud.domain.jpa.PopInStock;
-import cn.tacos.tacocloud.message.Consumer;
-import cn.tacos.tacocloud.message.Producer;
+import cn.tacos.tacocloud.integration.message.Consumer;
+import cn.tacos.tacocloud.integration.message.Producer;
 import cn.tacos.tacocloud.repository.jpa.JpaPopInStockRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import javax.jms.Destination;
 import javax.jms.JMSException;
-import javax.jms.Message;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 @Controller
 @RequestMapping("/message")

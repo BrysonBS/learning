@@ -1,18 +1,13 @@
-package cn.tacos.tacocloud.message;
+package cn.tacos.tacocloud.integration.message;
 
 import cn.tacos.tacocloud.domain.jpa.PopInStock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
-import org.springframework.jms.core.MessagePostProcessor;
-import org.springframework.jms.support.converter.MessageConverter;
-import org.springframework.messaging.MessageHeaders;
 import org.springframework.stereotype.Component;
 
 import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
-import javax.jms.Session;
 
 //发送Message
 @Component

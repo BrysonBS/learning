@@ -1,4 +1,4 @@
-package cn.tacos.tacocloud.message;
+package cn.tacos.tacocloud.integration.message;
 
 import cn.tacos.tacocloud.domain.jpa.PopInStock;
 import org.springframework.jms.annotation.JmsListener;
