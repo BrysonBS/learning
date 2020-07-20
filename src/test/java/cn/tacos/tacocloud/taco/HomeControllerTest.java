@@ -1,6 +1,6 @@
 package cn.tacos.tacocloud.taco;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
