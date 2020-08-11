@@ -3,10 +3,10 @@ package cn.tacos.tacocloud.rest.client;
 import cn.tacos.tacocloud.domain.jpa.PopInStock;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.hateoas.CollectionModel;
+/*import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.MediaTypes;
-import org.springframework.hateoas.client.Traverson;
+import org.springframework.hateoas.client.Traverson;*/
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GettingResource {
-    //private RestTemplate restTemplate = new RestTemplate();
+/*    //private RestTemplate restTemplate = new RestTemplate();
 
     //keytool -export -alias tomcat -keystore mykeys.jks -file server.crt
     //keytool -import -v -trustcacerts -alias tomcat -file server.crt -storepass changeit -keystore cacerts
@@ -29,18 +29,18 @@ public class GettingResource {
         PopInStock pop = getPopInStockById(2);
         System.out.println(pop);
 
-/*        PopInStock popInStock = new PopInStock();
+*//*        PopInStock popInStock = new PopInStock();
         popInStock.setId(1);
         popInStock.setTask(1111);
         popInStock.setName("hello");
-        updatePopInStock(popInStock);*/
+        updatePopInStock(popInStock);*//*
 
-/*        PopInStock popInStock = new PopInStock();
+*//*        PopInStock popInStock = new PopInStock();
         popInStock.setName("hello");
         popInStock.setTask(123455);
         createPopInStock(popInStock);
         createPopInStockEntity(popInStock);
-        System.out.println(createPopInStockLocation(popInStock).getPath());*/
+        System.out.println(createPopInStockLocation(popInStock).getPath());*//*
 
     }
     public PopInStock getPopInStockById(int id){
@@ -102,22 +102,22 @@ public class GettingResource {
         Traverson traverson = new Traverson(URI.create("https://localhost:8443/api"), MediaTypes.HAL_JSON);
         //获取PopInStocks
         ParameterizedTypeReference<CollectionModel<PopInStock>> popInStocksType = new ParameterizedTypeReference<>(){};
-        /** 1 **/
+        *//** 1 **//*
         CollectionModel<PopInStock> popInStocks = traverson.follow("pops")//根据json字段名
                 .toObject(popInStocksType);//因为泛型擦除的特性,无法传入正常的泛型类型,因此需要通过ParameterizedTypeReference
         assert popInStocks != null;
         //获取结果集
         Collection<PopInStock> collection = popInStocks.getContent();
-        /** 2 **/
+        *//** 2 **//*
         Collection<PopInStock> recents = traverson.follow("pops","recents") //等价于follow("pops").follow("recents")
                 .toObject(popInStocksType).getContent();
-        /** 3 **/
+        *//** 3 **//*
         //获取对应的url
         String url = traverson.follow("pops").asLink().getHref();
         //再使用RestTemplate插入数据
         PopInStock popInStock = new PopInStock();
         popInStock.setName("Traverson");
         new RestTemplate().postForEntity(url,popInStock,PopInStock.class);
-    }
+    }*/
 
 }

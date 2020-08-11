@@ -28,7 +28,7 @@ import javax.swing.text.FlowView;
 import java.io.File;
 import java.util.concurrent.Flow;
 
-@Configuration
+//@Configuration
 //@ImportResource("classpath:/xml/fileWriter-config.xml")
 public class IntegrationConfiguration {
 
@@ -104,7 +104,7 @@ public class IntegrationConfiguration {
                 .get();
     }
 
-    @Bean
+    //@Bean
     public IntegrationFlow queueFlow(){
         return IntegrationFlows.from(MessageChannels.queue("textInChannel"))
                 .transform(data -> data instanceof String ? ((String) data).toUpperCase() : data)

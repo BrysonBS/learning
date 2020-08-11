@@ -1,8 +1,8 @@
 package cn.tacos.tacocloud.reactive;
 
-import cn.tacos.tacocloud.controller.reactive.ReactivePopController;
+/*import cn.tacos.tacocloud.controller.reactive.ReactivePopController;
 import cn.tacos.tacocloud.domain.jpa.PopInStock;
-import cn.tacos.tacocloud.repository.reactive.ReactiveJpaPopRepository;
+import cn.tacos.tacocloud.repository.reactive.ReactiveJpaPopRepository;*/
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public class ReactiveTest {
-    @Test
+/*    @Test
     public void testRecent() throws JsonProcessingException {
         PopInStock[] pops = new PopInStock[12];
         for(int i=0;i<pops.length;++i){
@@ -62,5 +62,5 @@ public class ReactiveTest {
         pop.setId(id);
         pop.setName("PopInStock#" + id);
         return pop;
-    }
+    }*/
 }

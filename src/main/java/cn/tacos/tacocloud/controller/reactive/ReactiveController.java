@@ -19,7 +19,7 @@ public class ReactiveController {
     @GetMapping("/recent")
     @ResponseBody
     public Flux<PopInStock> recent(){
-        Pageable pageable = PageRequest.of(1,12);
+        Pageable pageable = PageRequest.of(0,12);
         return Flux.fromIterable(jpaPopInStockRepository.findAll(pageable));
     }
 }
