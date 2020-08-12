@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="consumer" />
+        <module name="taco" />
+        <module name="registry" />
+        <module name="config" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config" target="11" />
+      <module name="consumer" target="11" />
+      <module name="registry" target="11" />
+      <module name="SpringInAction" target="11" />
+      <module name="taco" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringInAction" options="-parameters" />
+      <module name="config" options="-parameters" />
+      <module name="consumer" options="-parameters" />
+      <module name="registry" options="-parameters" />
+      <module name="taco" options="-parameters" />
+    </option>
+  </component>
+</project>

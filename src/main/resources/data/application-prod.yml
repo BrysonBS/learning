@@ -1,6 +1,0 @@
-logging:
-  level:
-    root: WARN
-    org.springframework.security: WARN
-  file:
-    path: logs

@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: consumer
+---
+spring:
+  profiles: consumer
+  application:
+    name: consumer
+server:
+  port: 8763
