@@ -1,8 +1,4 @@
 spring:
-  profiles:
-    active: consumer
----
-spring:
   profiles: consumer
   application:
     name: consumer
