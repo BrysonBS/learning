@@ -1,6 +1,3 @@
-spring:
-  application:
-    name: eureka-registry
 server:
   port: 8761
 eureka:

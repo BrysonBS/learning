@@ -3,3 +3,5 @@ spring:
     config:
       uri:  http://localhost:8888 #定义从那个配置服务器(Config Server)获取配置属性
       # 默认值为http://localhost:8888
+  application:
+    name: eureka-registry
