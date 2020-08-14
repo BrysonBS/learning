@@ -1,7 +1,7 @@
 spring:
   profiles: registry
   application:
-    name: registry
+    name: registry-profiles
 server:
   port: 8766
 eureka:
