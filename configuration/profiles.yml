@@ -3,7 +3,7 @@ spring:
   application:
     name: registry
 server:
-  port: 8761
+  port: 8766
 eureka:
   instance:
     hostname: localhost
