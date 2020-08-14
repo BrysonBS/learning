@@ -4,10 +4,10 @@ spring:
       uri:  http://localhost:8888 #定义从那个配置服务器(Config Server)获取配置属性
       # 默认值为http://localhost:8888
       #profile: eureka
-      name: profiles
-      profile: registry
+      #name: registry
+      #profile: eureka
       #label:
   #application:
   #  name: eureka-registry
-  profiles:
-    active: registry
+  #profiles:
+  #  active: registry
