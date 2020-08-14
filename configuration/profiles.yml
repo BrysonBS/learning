@@ -3,7 +3,7 @@ spring:
   application:
     name: registry-profiles
 server:
-  port: 8766
+  port: 0c4e97a951510731b47ab0bc81f62ceab517f28bec007e36c6a1654773c1d4a1 #8765使用123456密钥加密后
 eureka:
   instance:
     hostname: localhost
