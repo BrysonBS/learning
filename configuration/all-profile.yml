@@ -1,0 +1,38 @@
+spring:
+  profiles: registry
+  application:
+    name: registry
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+---
+spring:
+  profiles: consumer
+  application:
+    name: consumer
+server:
+  port: 8763
+---
+spring:
+  profiles: taco
+  application:
+    name: taco
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:test;DB_CLOSE_ON_EXIT=FALSE
+    schema:
+      - classpath:data/schema.sql
+    data:
+      - classpath:data/data.sql
+    initialization-mode: always
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8762
