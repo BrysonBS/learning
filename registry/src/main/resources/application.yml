@@ -6,4 +6,4 @@ spring:
   #application:
   #  name: eureka-registry
   profiles:
-    active: eureka-registry
+    active: eureka
