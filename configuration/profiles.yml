@@ -12,6 +12,19 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
 ---
 spring:
+  profiles: registry-RSA
+  application:
+    name: registry-profiles-RSA
+server:
+  port: '{cipher}AQA2nYXUQe6c9TDSrAsJzFQKBEMykrp7w14KA5WZAKbFzaf+wHz3SKFwlyNHi2481bvscJ/ZOjR6IfWwOllDDeVf7WyzuvPEE+Mo4intWOqNkVXeGeB4qesgL+fJLO3VfU9mBV3pmn/yon0YfEd04NmjmgPUyFClxwIrCNeo/U41RvmPLXQ5mbZ8DYR2ao75zzlgOXCBgy0EYLBsqSb4M2/shcaCTe7rvvqq8sqEcefvQhBsgDrR3ujUyu4m+4LO1teFxZrsa0kTXrG2pl65FTN09EFtMOHJI0Ws3NN42l8Uv1Oa7r2OwqA0hOZKS6TJMObcFs8Rrpym9vuLuZpIab+kHbWrqcnsTQ2CRleu6OVMnUfXyhIbDAcEGMqaZ1wtrDs=' #8765使用RSA加密后
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+---
+spring:
   profiles: consumer
   application:
     name: consumer
