@@ -30,12 +30,12 @@ spring:
     name: registry-Vault
 server:
   port: 8761
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
 ---
 spring:
   profiles: consumer
