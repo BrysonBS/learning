@@ -25,11 +25,11 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
 ---
 spring:
-  profiles: registry-Vault1
+  profiles: registry-Vault
   application:
     name: registry-Vault
-#server:
-#  port: 8761
+server:
+  port: 8761
 #eureka:
 #  instance:
 #    hostname: localhost

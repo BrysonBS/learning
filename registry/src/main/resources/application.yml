@@ -7,7 +7,7 @@ spring:
       name: profiles
       #profile: eureka
       #label:
-      token: roottoken
+      #token: roottoken
   #application:
   #  name: eureka-registry
   #profiles:
