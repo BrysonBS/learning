@@ -4,3 +4,4 @@ spring:
       uri:  http://localhost:8888
       profile: taco
       name: profiles
+      token: roottoken
