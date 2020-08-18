@@ -68,5 +68,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:8767/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info
 greeting:
-  message: Hello World!123
+  message: Hello World!
