@@ -74,4 +74,4 @@ management:
       exposure:
         include: refresh,health,info
 greeting:
-  message: Hello World!
+  message: Hello World!123
