@@ -69,4 +69,4 @@ eureka:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:8767/eureka
 greeting:
-  message: Hello World!
+  message: Hello World!123
