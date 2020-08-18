@@ -1,18 +1,1 @@
-spring:
-  profiles: taco
-  datasource:
-    platform: h2
-    url: jdbc:h2:mem:test;DB_CLOSE_ON_EXIT=FALSE
-    schema:
-      - classpath:data/schema.sql
-    data:
-      - classpath:data/data.sql
-    initialization-mode: always
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-  application:
-    name: taco
-server:
-  port: 8762
+

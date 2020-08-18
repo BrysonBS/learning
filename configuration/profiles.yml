@@ -62,3 +62,5 @@ spring:
       ddl-auto: update
 server:
   port: 8762
+greeting:
+  message: Hello World!
