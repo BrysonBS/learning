@@ -1,0 +1,30 @@
+#encrypt:
+#  key: 123456
+encrypt:
+  key-store:
+    alias: tacokey
+    location: classpath:/tacokey.jks
+    password: tacokey #密钥库口令
+    secret: 123456 #密钥口令
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/BrysonBS/learning #远程仓库地址(即打开仓库后地址栏地址)
+          search-paths: configuration #查询仓库内路径(文件夹)
+          default-label: cloud # 仓库分支
+          username: BrysonBS #用户名
+          password: XXXXXX  #密码
+          order: 2 #优先级
+        vault: #服务器地址:(默认)https://localhost:8200
+          host: localhost
+          port: 8200
+          #scheme: https 启用https时(须配置ssl)使用
+          order: 1 #优先级: 先于git(值2)使用
+        encrypt:
+          enabled: true
+  application:
+    name: config-server #定义应用名称
+server:
+  port: 8888 #服务启动端口
