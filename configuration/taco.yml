@@ -13,5 +13,10 @@ spring:
       ddl-auto: update
   application:
     name: taco
+
 server:
   port: 8762
+info:
+  contact:
+    email: 123@taco.com
+    phone: 123

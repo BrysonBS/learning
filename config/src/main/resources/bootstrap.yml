@@ -15,7 +15,7 @@ spring:
           search-paths: configuration #查询仓库内路径(文件夹)
           default-label: cloud # 仓库分支
           username: BrysonBS #用户名
-          password: XXXXXX  #密码
+          password: z147969  #密码
           order: 2 #优先级
         vault: #服务器地址:(默认)https://localhost:8200
           host: localhost
